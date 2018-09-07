@@ -37,5 +37,14 @@ class netdata::params {
       fail("${::hostname}: This module does not support ${::osfamily} - ${::operatingsystem} ${::operatingsystemrelease}")
     }
   }
-
+  case $::netdata::install_method {
+    'pkg': {
+      $install_dir = '/'
+      $web_user    = 'root'
+    }
+    default: {
+      $install_dir = '/opt/netdata'
+      $web_user    = 'netdata'
+    }
+  }
 }
