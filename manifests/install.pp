@@ -19,5 +19,4 @@ class netdata::install {
     }
     default: { fail('invalid install_method specified - should be \'curl\' or \'pkg\'') }
   }
-
 }
